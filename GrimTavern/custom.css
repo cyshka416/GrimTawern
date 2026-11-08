@@ -1,0 +1,65 @@
+/* ============================================================
+   custom.css — точечные переопределения для секции «ФОРМАТЫ ИГРЫ»
+   Подключается ПОСЛЕ встроенных стилей в index.html,
+   поэтому правила ниже имеют приоритет (каскад CSS).
+
+   Обычное состояние кнопок НЕ меняется:
+     - .price-btn        — тёмная с золотой рамкой и золотым текстом
+     - .price-btn--blood — винно-кровавый градиент (центральная карточка)
+   Зелёный (изумрудный) акцент появляется только при наведении (:hover).
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. Наведение (:hover) — изумрудно-зеленый акцент
+      в тон рамки и плашки центральной карточки
+      (#22c55e / #10b981 / rgba(16, 185, 129, ...)).
+      Селекторы .price-card .price-btn* дают чуть более высокий
+      приоритет, чем исходные .price-btn:hover / .price-btn--blood:hover.
+   ------------------------------------------------------------ */
+
+.price-card .price-btn:hover,
+.price-card .price-btn--blood:hover {
+    color: #eafff3;
+    background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+    border-color: rgba(74, 222, 128, 0.65);
+    box-shadow:
+        0 8px 20px rgba(16, 185, 129, 0.35),
+        0 0 16px rgba(16, 185, 129, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+/* ------------------------------------------------------------
+   2. Состояние нажатия (:active)
+      Шрифт идентичен заголовку карточки («ОДНА НОЧЬ», «КАМПАНИЯ»,
+      «ТЁМНЫЙ РИТУАЛ» — класс .price-card h3):
+        font-family: 'Cormorant Garamond', 'Cinzel', serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: 5px;
+      Плавность переходов сохранена (унаследованный transition
+      дополнен шрифтовыми свойствами), эффект «вдавливания»
+      при нажатии сохранен. Цвет — более глубокий изумруд
+      (нажатие поверх зеленого наведения).
+   ------------------------------------------------------------ */
+
+.price-card .price-btn:active,
+.price-card .price-btn--blood:active {
+    font-family: 'Cormorant Garamond', 'Cinzel', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    transform: translateY(2px);
+    color: #ffffff;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-color: rgba(74, 222, 128, 0.8);
+    box-shadow:
+        inset 0 5px 10px rgba(0, 0, 0, 0.4),
+        0 2px 6px rgba(0, 0, 0, 0.5),
+        0 0 14px rgba(16, 185, 129, 0.35);
+    transition:
+        all 0.3s ease,
+        font-size 0.12s ease,
+        letter-spacing 0.12s ease;
+}

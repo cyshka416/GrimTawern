@@ -397,6 +397,9 @@
 
         .feature-card {
             background: linear-gradient(180deg, #1a151c 0%, #0e0b10 100%);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             border: 2px solid var(--gold-dark);
             padding: 34px 24px;
             text-align: center;
@@ -469,6 +472,36 @@
         .feature-card p {
             font-size: 0.96rem;
             color: var(--text-muted);
+        }
+
+        /* ============================================================
+           Фоновые изображения карточек «ЧТО ЖДЕТ ПУТНИКОВ»
+           Поверх фона — темное полупрозрачное затемнение (градиент),
+           чтобы текст и иконки оставались четкими и легко читаемыми.
+           Рамки, отступы и закругления карточек сохранены без изменений.
+           ============================================================ */
+        .feature-card--world {
+            background-image:
+                linear-gradient(180deg, rgba(7, 6, 9, 0.72) 0%, rgba(59, 9, 16, 0.55) 55%, rgba(7, 6, 9, 0.88) 100%),
+                url('img/мир.jpg');
+        }
+
+        .feature-card--combat {
+            background-image:
+                linear-gradient(180deg, rgba(7, 6, 9, 0.72) 0%, rgba(59, 9, 16, 0.55) 55%, rgba(7, 6, 9, 0.88) 100%),
+                url('img/бои.jpg');
+        }
+
+        .feature-card--roleplay {
+            background-image:
+                linear-gradient(180deg, rgba(7, 6, 9, 0.72) 0%, rgba(138, 43, 226, 0.35) 55%, rgba(7, 6, 9, 0.88) 100%),
+                url('img/отыгрышь.jpg');
+        }
+
+        .feature-card--madness {
+            background-image:
+                linear-gradient(180deg, rgba(7, 6, 9, 0.72) 0%, rgba(138, 43, 226, 0.35) 55%, rgba(7, 6, 9, 0.88) 100%),
+                url('img/безумие.jpg');
         }
 
         /* СЕКЦИЯ ЗАПИСИ (ФОРМА) */
@@ -1199,6 +1232,8 @@
             }
         }
     </style>
+    <!-- Переопределяющие стили (кнопки «ВЫБРАТЬ» в секции «Форматы игры») -->
+    <link rel="stylesheet" href="custom.css">
 </head>
 <body>
 
@@ -1280,7 +1315,7 @@
 
             <div class="features-grid">
                 <!-- Карточка 1 -->
-                <article class="feature-card">
+                <article class="feature-card feature-card--world">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 4.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/>
@@ -1291,7 +1326,7 @@
                 </article>
 
                 <!-- Карточка 2 -->
-                <article class="feature-card">
+                <article class="feature-card feature-card--combat">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M6.92 5H5l9 9 1-.94m4.96 6.06l-.84.84a.996.996 0 0 1-1.41 0l-3.12-3.12-2.68 2.66-1.41-1.41 1.42-1.42L3 7.75V3h4.75l8.92 8.92 1.42-1.42 1.41 1.41-2.67 2.67 3.12 3.12c.4.4.4 1.03.01 1.42z"/>
@@ -1302,7 +1337,7 @@
                 </article>
 
                 <!-- Карточка 3 -->
-                <article class="feature-card">
+                <article class="feature-card feature-card--roleplay">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zm-5 4h8v2H8v-2zm0 4h5v2H8v-2z"/>
@@ -1313,7 +1348,7 @@
                 </article>
 
                 <!-- Карточка 4 -->
-                <article class="feature-card">
+                <article class="feature-card feature-card--madness">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12 2L4 7v10l8 5 8-5V7l-8-5zm0 2.8L17.2 8 12 11.2 6.8 8 12 4.8zM6 9.8l5 3.1v6.3l-5-3.1V9.8zm7 9.4v-6.3l5-3.1v6.3l-5 3.1z"/>
